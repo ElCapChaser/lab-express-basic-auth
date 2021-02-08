@@ -1,12 +1,15 @@
-<h1>Sign-up form</h1>
+<h1>Log-in form</h1>
 
-<form action="" method="POST">
+<form action="/auth/log-in" method="POST">
     <label for="userName">User name:</label>
     <input type="text" name="userName" id="userName" placeholder="User name" required>
 
     <label for="password">User name:</label>
     <input type="password" name="password" id="password" placeholder="*******" minlength="8" required>
 
-    <button>Register</button>
+    <button>Log-in</button>
 
+  {{#if errorMessage}}
+      <p class="error">{{errorMessage}}</p>
+    {{/if}}
 </form>

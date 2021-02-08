@@ -10,6 +10,9 @@ const authRouter = require('./routes/auth-route');
 
 const app = express();
 
+// use session here:
+require('./session.config')(app);
+
 // Setup view engine
 app.set('views', join(__dirname, 'views'));
 app.set('view engine', 'hbs');
@@ -31,7 +34,7 @@ app.use(
 );
 
 app.use('/', indexRouter);
-app.use('/', authRouter);
+app.use('/auth', authRouter);
 
 // Catch missing routes and forward to error handler
 app.use((req, res, next) => {
